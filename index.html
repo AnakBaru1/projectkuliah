@@ -17,14 +17,17 @@
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="Username" required autofocus id="username" autocomplete="off">
                 </div>
+                <div class="error-message" id="error-username-signin"></div>
                 <div class="input-field">  
                     <i class="fas fa-envelope"></i>  
-                    <input type="email" placeholder="Email" required id="email-signup" autocomplete="off">  
-                 </div>
+                    <input type="email" placeholder="Email" required id="email-signin" autocomplete="off">  
+                </div>
+                <div class="error-message" id="error-email-signin"></div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Password" required id="password" autocomplete="off">
                 </div>
+                <div class="error-message" id="error-password-signin"></div>
                 <input type="submit" value="Login" class="btn">
                 <p class="social-text">Or Sign in with social platform</p>
                 <div class="social-media">
@@ -49,14 +52,17 @@
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="Username" required id="username-signup" autocomplete="off" autofocus>
                 </div>
+                <div class="error-message" id="error-username-signup"></div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Email" required id="emial-signup" autocomplete="off">
+                    <input type="email" placeholder="Email" required id="email-signup" autocomplete="off">
                 </div>
+                <div class="error-message" id="error-email-signup"></div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Password" required id="password-signup" autocomplete="off">
                 </div>
+                <div class="error-message" id="error-password-signup"></div>
                 <input type="submit" value="Sign up" class="btn">
                 <p class="social-text">Or Sign in with social platform</p>
                 <div class="social-media">
@@ -75,8 +81,6 @@
                 </div>
                 <p class="account-text">Sudah punya akun? <a href="#" id="sign-in-btn2">Sign up</a></p>
             </form>
-            
-
         </div>
         <div class="panels-container">
             <div class="panel left-panel">
@@ -96,9 +100,7 @@
                 <img src="signup.svg" alt="" class="image">
             </div>
         </div>
-       
     </div>
     <script src="app.js"></script>
 </body>
-
 </html>
