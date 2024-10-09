@@ -1,24 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-@media (max-width: 768px) {
-    .container {
-        padding: 20px; 
-    }
-
-    .input-field {
-        width: 100%;
-        margin-bottom: 15px; 
-    }
-
-    .btn {
-        width: 100%; 
-        padding: 12px; 
-    }
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }
+
 body {  
     display: flex;  
     align-items: center;  
@@ -27,23 +18,19 @@ body {
     background-image: linear-gradient(to bottom, #c7b8ea, #a57ea4);  
     background-size: cover;  
     background-position: center;  
-  }
-.container{
+}
+
+.container {
     position: relative;
     width: 70vw;
     height: 80vh;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3),0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-}
 
-.container::before{
+.container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -56,7 +43,7 @@ body {
     transition: 1s ease-in-out;
 }
 
-.signin-signup{
+.signin-signup {
     position: absolute;
     top: 0;
     left: 0;
@@ -67,25 +54,25 @@ body {
     justify-content: space-around;
     z-index: 5;
 }
+
 form {
     padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100%; /* Ubah dari 40px menjadi 100% */
-    max-width: 350px; /* Batasi lebar maksimal */
+    width: 100%;
+    max-width: 350px;
     min-width: 238px;
-    padding: 0 10px;
 }
 
-form.sign-in-form{
+form.sign-in-form {
     opacity: 1;
     transition: 0.5s ease-in-out;
     transition-delay: 1s;
 }
 
-form.sign-up-form{
+form.sign-up-form {
     opacity: 0;
     transition: 0.5s ease-in-out;
     transition-delay: 1s;
@@ -97,7 +84,7 @@ form.sign-up-form{
     margin-bottom: 10px;
 }
 
-.input-field{
+.input-field {
     width: 100%;
     height: 50px;
     background: #f0f0f0;
@@ -106,7 +93,6 @@ form.sign-up-form{
     border-radius: 50px;
     display: flex;
     align-items: center;
-
 }
 
 .input-field i {
@@ -116,7 +102,7 @@ form.sign-up-form{
     font-size: 18px;
 }
 
-.input-field input{
+.input-field input {
     flex: 5;
     background: none;
     border: none;
@@ -126,7 +112,7 @@ form.sign-up-form{
     font-weight: 600;
 }
 
-.btn{
+.btn {
     width: 150px;
     height: 50px;
     border: none;
@@ -137,24 +123,23 @@ form.sign-up-form{
     margin: 10px 0;
     text-transform: uppercase;
     cursor: pointer;
-    
 }
 
-.btn:hover{
+.btn:hover {
     background: #c03cc0;
 }
 
-.social-text{
+.social-text {
     margin: 10px 0;
     font-size: 16px;
 }
 
-.social-media{
+.social-media {
     display: flex;
     justify-content: center;
 }
 
-.social-icons{
+.social-icons {
     height: 45px;
     width: 45px;
     display: flex;
@@ -166,16 +151,16 @@ form.sign-up-form{
     margin: 0 5px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.social-icons:hover{
+.social-icons:hover {
     color: #df4adf;
     border-color: #df4adf;
 }
 
-.panels-container{
+.panels-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -186,7 +171,7 @@ a{
     justify-content: space-around;
 }
 
-.panel{
+.panel {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,7 +183,7 @@ a{
     z-index: 6;
 }
 
-.left-panel{
+.left-panel {
     pointer-events: none;
 }
 
@@ -208,12 +193,12 @@ a{
     transition-delay: 0.5s;
 }
 
-.panel h3{
+.panel h3 {
     font-size: 24px;
     font-weight: 600;
 }
 
-.panel p{
+.panel p {
     font-size: 15px;
     padding: 10px 0;
 }
@@ -225,80 +210,99 @@ a{
 }
 
 .left-panel .image,
-.left-panel .content{
+.left-panel .content {
     transform: translateX(-200%);
 }
 
 .right-panel .image,
-.right-panel .content{
+.right-panel .content {
     transform: translateX(0);
 }
 
-.account-text{
+.account-text {
     display: none;
 }
 
-.container.sign-up-mode::before{
+.container.sign-up-mode::before {
     transform: translateX(0);
 }
 
 .container.sign-up-mode .right-panel .image,
-.container.sign-up-mode .right-panel .content{
+.container.sign-up-mode .right-panel .content {
     transform: translateX(200%);
 }
+
 .container.sign-up-mode .left-panel .image,
-.container.sign-up-mode .left-panel .content{
+.container.sign-up-mode .left-panel .content {
     transform: translateX(0);
 }
 
-.container.sign-up-mode form.sign-in-form{
+.container.sign-up-mode form.sign-in-form {
     opacity: 0;
 }
 
-.container.sign-up-mode form.sign-up-form{
+.container.sign-up-mode form.sign-up-form {
     opacity: 1;
 }
 
-.container.sign-up-mode .right-panel{
+.container.sign-up-mode .right-panel {
     pointer-events: none;
 }
 
-.container.sign-up-mode .left-panel{
+.container.sign-up-mode .left-panel {
     pointer-events: all;
 }
 
-@media (max-width:779px){
-    .container{
+/* Media Queries untuk Responsif */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; 
+        width: 100vw; /* Memastikan lebar container 100% */
+        height: auto; /* Menyesuaikan tinggi sesuai konten */
+    }
+
+    .input-field {
+        width: 100%; /* Input memenuhi lebar */
+        margin-bottom: 15px; /* Jarak antar input */
+    }
+
+    .btn {
+        width: 100%; /* Tombol memenuhi lebar */
+        padding: 12px; /* Padding lebih besar untuk kemudahan akses */
+    }
+}
+
+@media (max-width: 779px) {
+    .container {
         width: 100vw;
         height: 100vh;
     }
 }
 
-@media (max-width:635px){
-    .container::before{
-       display: none;
+@media (max-width: 635px) {
+    .container::before {
+       display: none; /* Menyembunyikan background di layar kecil */
     }
-    form{
-        width: 80%;
+    form {
+        width: 80%; /* Lebar form lebih kecil di perangkat kecil */
     }
-    form.sign-up-form{
+    form.sign-up-form {
         display: none;
     }
-    .container.sign-up-mode2 form.sign-up-form{
+    .container.sign-up-mode2 form.sign-up-form {
         display: flex;
         opacity: 1;
     }
-
-    .container.sign-up-mode2 form.sign-in-form{
+    .container.sign-up-mode2 form.sign-in-form {
         display: flex;
     }
-
-    .panels-container{
-        display: none;
+    .panels-container {
+        display: none; /* Menyembunyikan panels-container di layar kecil */
     }
 }
-@media (max-width:320px){
-    form{
-        width: 90%;
+
+@media (max-width: 320px) {
+    form {
+        width: 90%; /* Lebar form lebih kecil di perangkat ekstra kecil */
     }
 }
