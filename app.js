@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
     
             if (!validatePassword(password, username)) {
-                showError("error-password-signin", "Password tidak memenuhi kriteria.");
+                showError("error-password-signin", "Password harus memiliki minimal 8 karakter dan mengandung huruf besar, huruf kecil, angka, dan karakter khusus.");
                 isValid = false;
             }
     
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
             if (!validatePassword(password, username)) {
-                showError("error-password-signup", "Password tidak memenuhi kriteria.");
+                showError("error-password-signup", "Password harus memiliki minimal 8 karakter dan mengandung huruf besar, huruf kecil, angka, dan karakter khusus.");
                 isValid = false;
             }
     
@@ -131,4 +131,3 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
-    
