@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
         function validateSignIn() {
             const username = document.getElementById("username").value;
-            const email = document.getElementById("email-signin").value;
             const password = document.getElementById("password").value;
     
             resetErrorMessages();
@@ -50,12 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 showError("error-username-signin", "Username harus antara 5-15 karakter.");
                 isValid = false;
             }
-    
-            if (!validateEmail(email)) {
-                showError("error-email-signin", "Format email tidak valid.");
-                isValid = false;
-            }
-    
             if (!validatePassword(password, username)) {
                 showError("error-password-signin", "Password harus memiliki minimal 8 karakter dan mengandung huruf besar, huruf kecil, angka, dan karakter khusus.");
                 isValid = false;
