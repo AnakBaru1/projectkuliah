@@ -23,72 +23,112 @@ sign_in_btn2.addEventListener("click",() =>
 {
     container.classList.remove("sign-up-mode2");
 });
-document.getElementById('sign-in-form').addEventListener('submit', function(event) 
-    {  
-            event.preventDefault();  
-            var username = document.getElementById('username').value;  
-            var password = document.getElementById('password').value;  
-     
-    if (username.length < 5 || username.length > 15) 
-    {  
-            alert('Username harus memiliki panjang minimal 5 karakter dan maksimal 15 karakter');  
-            return;  
-    }  
-     
-    if (password.length < 8 || password.length > 20) 
-    {  
-            alert('Password harus memiliki panjang minimal 8 karakter dan maksimal 20 karakter');  
-            return;  
-    }  
-    if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) 
-    {  
-            alert('Password harus memiliki minimal satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus');  
-            return;  
-    }  
-    if (username === password) 
-    {  
-            alert('Username dan password tidak boleh sama');  
-            return;  
-    }  
-    this.submit();  
- });  
-   
- document.getElementById('sign-up-form').addEventListener('submit', function(event) 
- {  
-            event.preventDefault();  
-            var username = document.getElementById('username-signup').value;  
-            var email = document.getElementById('email-signup').value;  
-            var password = document.getElementById('password-signup').value;  
-     
-    if (username.length < 5 || username.length > 15) 
-    {  
-            alert('Username harus memiliki panjang minimal 5 karakter dan maksimal 15 karakter');  
-            return;  
-    }  
-      
-    if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) 
-    {  
-            alert('Email harus memiliki format yang benar');  
-            return;  
-    }  
-     
-    if (password.length < 8 || password.length > 20) 
-    {  
-            alert('Password harus memiliki panjang minimal 8 karakter dan maksimal 20 karakter');  
-            return;  
-    }  
+document.addEventListener("DOMContentLoaded", () => {
+        const signInForm = document.querySelector(".sign-in-form");
+        const signUpForm = document.querySelector(".sign-up-form");
     
-    if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) 
-    {  
-            alert('Password harus memiliki minimal satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus');  
-            return;  
-    }  
-     
-    if (username === password) 
-    {  
-            alert('Username dan password tidak boleh sama');  
-            return;  
-    }  
-      
-    this.submit();  
- });
+        signInForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            validateSignIn();
+        });
+    
+        signUpForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            validateSignUp();
+        });
+    
+        function validateSignIn() {
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email-signin").value;
+            const password = document.getElementById("password").value;
+    
+            resetErrorMessages();
+    
+            let isValid = true;
+    
+            if (username.length < 5 || username.length > 15) {
+                showError("error-username-signin", "Username harus antara 5-15 karakter.");
+                isValid = false;
+            }
+    
+            if (!validateEmail(email)) {
+                showError("error-email-signin", "Format email tidak valid.");
+                isValid = false;
+            }
+    
+            if (!validatePassword(password, username)) {
+                showError("error-password-signin", "Password tidak memenuhi kriteria.");
+                isValid = false;
+            }
+    
+            if (isValid) {
+                signInForm.submit();
+            }
+        }
+    
+        function validateSignUp() {
+            const username = document.getElementById("username-signup").value;
+            const email = document.getElementById("email-signup").value;
+            const password = document.getElementById("password-signup").value;
+    
+            resetErrorMessages();
+    
+            let isValid = true;
+ 
+            if (username.length < 5 || username.length > 15) {
+                showError("error-username-signup", "Username harus antara 5-15 karakter.");
+                isValid = false;
+            }
+    
+            if (!validateEmail(email)) {
+                showError("error-email-signup", "Format email tidak valid.");
+                isValid = false;
+            }
+    
+
+            if (!validatePassword(password, username)) {
+                showError("error-password-signup", "Password tidak memenuhi kriteria.");
+                isValid = false;
+            }
+    
+            if (isValid) {
+                signUpForm.submit();
+            }
+        }
+    
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+    
+        function validatePassword(password, username) {
+            const minLength = 8;
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            return (
+                password.length >= minLength &&
+                hasUpperCase &&
+                hasLowerCase &&
+                hasNumber &&
+                hasSpecialChar &&
+                password !== username
+            );
+        }
+    
+        function showError(elementId, message) {
+            const errorMessageElement = document.getElementById(elementId);
+            errorMessageElement.textContent = message;
+            errorMessageElement.style.display = "block";
+        }
+    
+        function resetErrorMessages() {
+            const errorMessages = document.querySelectorAll(".error-message");
+            errorMessages.forEach((errorMessage) => {
+                errorMessage.textContent = "";
+                errorMessage.style.display = "none";
+            });
+        }
+    });
+    
