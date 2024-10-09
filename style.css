@@ -23,6 +23,12 @@ body {
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3),0 6px 20px 0 rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .container::before{
     content: "";
     position: absolute;
@@ -218,9 +224,6 @@ a{
     display: none;
 }
 
-
-/*animation*/
-
 .container.sign-up-mode::before{
     transform: translateX(0);
 }
@@ -249,8 +252,6 @@ a{
 .container.sign-up-mode .left-panel{
     pointer-events: all;
 }
-
-/*responsive*/
 
 @media (max-width:779px){
     .container{
