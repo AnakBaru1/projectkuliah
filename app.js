@@ -124,3 +124,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const togglePasswordSignin = document.querySelector("#togglePassword-signin");
+        const passwordInputSignin = document.querySelector("#password");
+    
+        const togglePasswordSignup = document.querySelector("#togglePassword-signup");
+        const passwordInputSignup = document.querySelector("#password-signup");
+        togglePasswordSignin.addEventListener("click", () => {
+            const type = passwordInputSignin.getAttribute("type") === "password" ? "text" : "password";
+            passwordInputSignin.setAttribute("type", type);
+            togglePasswordSignin.classList.toggle("fa-eye-slash");
+        });
+    
+        togglePasswordSignup.addEventListener("click", () => {
+            const type = passwordInputSignup.getAttribute("type") === "password" ? "text" : "password";
+            passwordInputSignup.setAttribute("type", type);
+            togglePasswordSignup.classList.toggle("fa-eye-slash");
+        });
+    });
+    
