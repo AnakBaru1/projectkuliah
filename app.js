@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
         function validateSignIn() {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-    
+        
             resetErrorMessages();
-    
+        
             let isValid = true;
-    
+        
             if (username.length < 5 || username.length > 15) {
                 showError("error-username-signin", "Username harus antara 5-15 karakter.");
                 isValid = false;
@@ -53,11 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 showError("error-password-signin", "Password harus memiliki minimal 8 karakter dan mengandung huruf besar, huruf kecil, angka, dan karakter khusus.");
                 isValid = false;
             }
-    
+        
             if (isValid) {
-                signInForm.submit();
+                window.location.href = "https://kagura087.github.io/proyekShoppingCart/";
             }
         }
+        
     
         function validateSignUp() {
             const username = document.getElementById("username-signup").value;
