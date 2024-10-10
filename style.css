@@ -264,6 +264,17 @@ a {
     pointer-events: all;
 }
 
+.input-field i.fa-eye {
+    cursor: pointer;
+    margin-right: 15px;
+    color: #666;
+}
+
+.input-field input {
+    flex: 4;
+}
+
+
 @media (max-width:779px){
     .container{
         width: 100vw;
